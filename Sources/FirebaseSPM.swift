@@ -9,10 +9,7 @@ import Firebase
 import FirebaseSPM
 import Foundation
 
-public struct FirebaseSPM {
-    public static var DatabaseType: DatabaseProtocol.Type!
-    public static var DataSnapshotType: DataSnapshotProtocol.Type!
-    
+extension FirebaseSPM {
     public static func initialize() {
         DatabaseType = Database.self
         DataSnapshotType = DataSnapshot.self
@@ -58,7 +55,7 @@ extension DatabaseReference: DatabaseReferenceProtocol {
         child(pathString) as DatabaseReference
     }
     
-    func observe(_ eventType: _DataEventType, with block: @escaping (DataSnapshotProtocol) -> ()) {
+    public func observe(_ eventType: _DataEventType, with block: @escaping (DataSnapshotProtocol) -> ()) {
         observe(DataEventType(eventType)) {
             block($0)
         }

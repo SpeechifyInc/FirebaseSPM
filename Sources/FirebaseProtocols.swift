@@ -4,6 +4,11 @@
 
 import Foundation
 
+public struct FirebaseSPM {
+    public static var DatabaseType: DatabaseProtocol.Type!
+    public static var DataSnapshotType: DataSnapshotProtocol.Type!
+}
+
 public protocol FirebaseAppProtocol: class {
     
 }
@@ -23,8 +28,8 @@ public protocol DatabaseProtocol: class {
     var callbackQueue: DispatchQueue { get set }
     
     func reference() -> DatabaseReferenceProtocol
-    func reference(withPath path: String) -> DatabaseReferenceProtocol
-    func reference(fromURL databaseUrl: String) -> DatabaseReferenceProtocol
+    func reference(withPath _: String) -> DatabaseReferenceProtocol
+    func reference(fromURL _: String) -> DatabaseReferenceProtocol
     
     func purgeOutstandingWrites()
     func goOffline()
@@ -32,8 +37,8 @@ public protocol DatabaseProtocol: class {
 }
 
 public protocol DatabaseReferenceProtocol: class {
-    func child(_ pathString: String) -> DatabaseReferenceProtocol
-    
+    func child(_: String) -> DatabaseReferenceProtocol
+    func observe(_: _DataEventType, with _: @escaping (DataSnapshotProtocol) -> ()) 
     func removeAllObservers()
 }
 
