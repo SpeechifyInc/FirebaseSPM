@@ -21,41 +21,41 @@ extension Database: DatabaseProtocol {
         app
     }
     
-    public static func database() -> DatabaseProtocol {
+    public static func _database() -> DatabaseProtocol {
         self.database() as Database
     }
     
-    public static func database(url: String) -> DatabaseProtocol? {
+    public static func _database(url: String) -> DatabaseProtocol? {
         database(url: url) as Database
     }
     
-    public static func database(app: FirebaseAppProtocol, url: String) -> DatabaseProtocol {
+    public static func _database(app: FirebaseAppProtocol, url: String) -> DatabaseProtocol {
         database(app: app as! FirebaseApp, url: url)
     }
     
-    public static func database(app: FirebaseAppProtocol) -> DatabaseProtocol {
+    public static func _database(app: FirebaseAppProtocol) -> DatabaseProtocol {
         database(app: app as! FirebaseApp) as DatabaseProtocol
     }
     
-    public func reference() -> DatabaseReferenceProtocol {
+    public func _reference() -> DatabaseReferenceProtocol {
         reference() as DatabaseReference
     }
     
-    public func reference(withPath path: String) -> DatabaseReferenceProtocol{
+    public func _reference(withPath path: String) -> DatabaseReferenceProtocol{
         reference(withPath: path) as DatabaseReference
     }
     
-    public func reference(fromURL databaseUrl: String) -> DatabaseReferenceProtocol {
+    public func _reference(fromURL databaseUrl: String) -> DatabaseReferenceProtocol {
         reference(fromURL: databaseUrl) as DatabaseReference
     }
 }
 
 extension DatabaseReference: DatabaseReferenceProtocol {
-    public func child(_ pathString: String) -> DatabaseReferenceProtocol {
+    public func _child(_ pathString: String) -> DatabaseReferenceProtocol {
         child(pathString) as DatabaseReference
     }
     
-    public func observe(_ eventType: _DataEventType, with block: @escaping (DataSnapshotProtocol) -> ()) {
+    public func _observe(_ eventType: _DataEventType, with block: @escaping (DataSnapshotProtocol) -> Void) {
         observe(DataEventType(eventType)) {
             block($0)
         }

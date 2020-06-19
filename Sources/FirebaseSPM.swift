@@ -14,10 +14,10 @@ public protocol FirebaseAppProtocol: class {
 }
 
 public protocol DatabaseProtocol: class {
-    static func database() -> DatabaseProtocol
-    static func database(url: String) -> DatabaseProtocol?
-    static func database(app: FirebaseAppProtocol, url: String) -> DatabaseProtocol
-    static func database(app: FirebaseAppProtocol) -> DatabaseProtocol
+    static func _database() -> DatabaseProtocol
+    static func _database(url: String) -> DatabaseProtocol?
+    static func _database(app: FirebaseAppProtocol, url: String) -> DatabaseProtocol
+    static func _database(app: FirebaseAppProtocol) -> DatabaseProtocol
     
     static func setLoggingEnabled(_ enabled: Bool)
     static func sdkVersion() -> String
@@ -27,9 +27,9 @@ public protocol DatabaseProtocol: class {
     var persistenceCacheSizeBytes: UInt { get set }
     var callbackQueue: DispatchQueue { get set }
     
-    func reference() -> DatabaseReferenceProtocol
-    func reference(withPath _: String) -> DatabaseReferenceProtocol
-    func reference(fromURL _: String) -> DatabaseReferenceProtocol
+    func _reference() -> DatabaseReferenceProtocol
+    func _reference(withPath _: String) -> DatabaseReferenceProtocol
+    func _reference(fromURL _: String) -> DatabaseReferenceProtocol
     
     func purgeOutstandingWrites()
     func goOffline()
@@ -37,8 +37,8 @@ public protocol DatabaseProtocol: class {
 }
 
 public protocol DatabaseReferenceProtocol: class {
-    func child(_: String) -> DatabaseReferenceProtocol
-    func observe(_: _DataEventType, with _: @escaping (DataSnapshotProtocol) -> ()) 
+    func _child(_: String) -> DatabaseReferenceProtocol
+    func _observe(_: _DataEventType, with _: @escaping (DataSnapshotProtocol) -> ()) 
     func removeAllObservers()
 }
 
