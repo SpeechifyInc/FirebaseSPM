@@ -10,6 +10,7 @@ let package = Package(
     products: [
         .library(
             name: "FirebaseSPM",
+            type: .dynamic,
             targets: ["FirebaseSPM"]
         )
     ],
